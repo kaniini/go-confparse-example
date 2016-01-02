@@ -25,6 +25,10 @@ func WalkEntry(ceptr *confparse.ConfigEntry, depth int) {
 		WalkEntry(ceptr.Entries, depth + 1);
 	}
 
+	if (ceptr.Next != nil) {
+		WalkEntry(ceptr.Next, depth);
+	}
+
 	if doSection {
 		fmt.Printf("%s}\n\n", depthStr)
 	}
